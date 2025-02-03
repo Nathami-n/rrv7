@@ -2,28 +2,16 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  isRouteErrorResponse
+  isRouteErrorResponse,
 } from "react-router";
 import type { Route } from "./+types/root";
 
 import appStylesHref from "./app.css?url";
 
-import { getContacts } from "./data";
-
-export async function clientLoader() {
-  const contacts = await getContacts();
-  return {contacts};
-}
-
-export default function App({loaderData}: Route.ComponentProps) {
-
+export default function App({ loaderData }: Route.ComponentProps) {
   return (
     <>
-      
-
-    
-        <Outlet/>
-      
+      <Outlet />
     </>
   );
 }
@@ -85,5 +73,5 @@ export function HydrateFallback() {
       <div id="loading-splash-spinner"></div>
       <p>Loading, please wait...</p>
     </div>
-  )
+  );
 }
